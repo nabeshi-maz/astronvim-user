@@ -10,6 +10,8 @@ return {
     ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
     -- hop
     ["f"] = { ":HopWord<Enter>", remap=true},
+    -- other
+    ["<leader>O"] = {":Other<Enter>", desc = "show other files related to current file"},
   },
   t = {
     -- setting a mapping to false will disable it
