@@ -1,84 +1,64 @@
-      local rails_controller_patterns = {
-        { target = "/spec/controllers/%1_spec.rb", context = "spec" },
-        { target = "/spec/requests/%1_spec.rb", context = "spec" },
-        { target = "/spec/factories/%1.rb", context = "factories", transformer = "singularize" },
-        { target = "/app/models/%1.rb", context = "models", transformer = "singularize" },
-        { target = "/app/views/%1/**/*.html.*", context = "view" },
-      }
 return {
   'rgroli/other.nvim',
   config =  function ()
-    require('nvim-treesitter.configs').setup {
-      mappings = {
+    require('other-nvim').setup {
+    mappings = {
+        -- model
           {
             pattern = "/app/models/(.*).rb",
             target = {
-              { target = "/spec/models/%1_spec.rb", context = "spec" },
-              { target = "/spec/factories/%1.rb", context = "factories", transformer = "pluralize" },
-              { target = "/app/controllers/**/%1_controller.rb", context = "controller", transformer = "pluralize" },
-              { target = "/app/views/%1/**/*.html.*", context = "view", transformer = "pluralize" },
+                {
+                  target = '/spec/factories/%1s.rb',
+                  context = 'factory',
+                },
+                {
+                  target = '/spec/models/%1_spec.rb',
+                  context = 'model spec',
+                },
+                {
+                  target = '/app/controllers/**/%1s_controller.rb',
+                  context = 'controller',
+                },
             },
           },
+        -- model_spec
           {
-            pattern = "/spec/models/(.*)_spec.rb",
-            target = {
-              { target = "/app/models/%1.rb", context = "models" },
+            pattern = 'spec/models/(.*)_spec.rb',
+            target={
+              {
+                target='/app/models/%1.rb',
+                context='model',
+              }, 
             },
           },
+        -- controller(rest) 
           {
-            pattern = "/spec/factories/(.*).rb",
-            target = {
-              { target = "/app/models/%1.rb", context = "models", transformer = "singularize" },
-              { target = "/spec/models/%1_spec.rb", context = "spec", transformer = "singularize" },
+            pattern = '/app/controllers/rest/(.*)_controller.rb',
+            target={
+              {
+                target='/spec/requests/rest/%1/*.rb',
+                context='controller spec',
+              }, 
             },
           },
+        -- operation,queries,forms,jobs
           {
-            pattern = "/app/services/(.*).rb",
-            target = {
-              { target = "/spec/services/%1_spec.rb", context = "spec" },
+            pattern = '/app/(.*)/(.*)/(.*).rb',
+            target={
+              {
+                target='/spec/%1/%2/%3_spec.rb',
+                context='spec',
+              }, 
             },
           },
+        -- spec operation,queries,forms,jobs
           {
-            pattern = "/spec/services/(.*)_spec.rb",
-            target = {
-              { target = "/app/services/%1.rb", context = "services" },
-            },
-          },
-          {
-            pattern = "/app/controllers/.*/(.*)_controller.rb",
-            target = rails_controller_patterns,
-          },
-          {
-            pattern = "/app/controllers/(.*)_controller.rb",
-            target = rails_controller_patterns,
-          },
-          {
-            pattern = "/app/views/(.*)/.*.html.*",
-            target = {
-              { target = "/spec/factories/%1.rb", context = "factories", transformer = "singularize" },
-              { target = "/app/models/%1.rb", context = "models", transformer = "singularize" },
-              { target = "/app/controllers/**/%1_controller.rb", context = "controller", transformer = "pluralize" },
-            },
-          },
-          {
-            pattern = "/lib/(.*).rb",
-            target = {
-              { target = "/spec/%1_spec.rb", context = "spec" },
-              { target = "/sig/%1.rbs", context = "sig" },
-            },
-          },
-          {
-            pattern = "/sig/(.*).rbs",
-            target = {
-              { target = "/lib/%1.rb", context = "lib" },
-              { target = "/%1.rb" },
-            },
-          },
-          {
-            pattern = "/spec/(.*)_spec.rb",
-            target = {
-              { target = "/lib/%1.rb", context = "lib" },
-              { target = "/sig/%1.rbs", context = "sig" },
+            pattern = '/spec/(.*)/(.*)/(.*)_spec.rb',
+            target={
+              {
+                target='/app/%1/%2/%3.rb',
+                context='impl',
+              }, 
             },
           },
       },
