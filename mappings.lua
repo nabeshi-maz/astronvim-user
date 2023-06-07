@@ -8,10 +8,12 @@ return {
     -- quick save
     ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
     -- hop
-    ["f"] = { ":HopWord<Enter>", remap=true},
+    ["F"] = { ":HopWord<Enter>", remap=true},
     -- other
     ["<leader>O"] = {":Other<Enter>", desc = "show other files related to current file"},
     ["<leader>f'"] = {function () require('telescope').extensions.vim_bookmarks.all() end, desc = 'all bookmarks'},
+    -- telescope diagnostic
+    ["<leader>fe"] = {':Telescope diagnostics<Enter>', desc = 'find diagnositc'},
 
   },
   t = {

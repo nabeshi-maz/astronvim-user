@@ -39,6 +39,10 @@ return {
                 target='/spec/requests/rest/%1/*.rb',
                 context='controller spec',
               }, 
+              {
+                target='/app/views/rest/%1/*.json.jbuilder',
+                context='controller spec',
+              }, 
             },
           },
         -- operation,queries,forms,jobs
