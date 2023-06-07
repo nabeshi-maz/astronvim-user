@@ -16,6 +16,8 @@ return {
     ["<leader>fe"] = {':Telescope diagnostics<Enter>', desc = 'find diagnositc'},
     -- telescope file browser
     ["<leader>fd"] = {':Telescope file_browser<Enter>',noremap=true, desc = 'find file browser'},
+    -- telescope find arg
+    ["<leader>fg"] = {":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>", desc ='find arg'},
   },
   t = {
     -- setting a mapping to false will disable it
