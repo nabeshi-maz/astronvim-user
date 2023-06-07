@@ -28,7 +28,7 @@ return {
               {
                 target='/app/models/%1.rb',
                 context='model',
-              }, 
+              },
             },
           },
         -- controller(rest) 
@@ -38,11 +38,11 @@ return {
               {
                 target='/spec/requests/rest/%1/*.rb',
                 context='controller spec',
-              }, 
+              },
               {
                 target='/app/views/rest/%1/*.json.jbuilder',
                 context='controller spec',
-              }, 
+              },
             },
           },
         -- operation,queries,forms,jobs
@@ -52,7 +52,7 @@ return {
               {
                 target='/spec/%1/%2/%3_spec.rb',
                 context='spec',
-              }, 
+              },
             },
           },
         -- spec operation,queries,forms,jobs
@@ -62,7 +62,7 @@ return {
               {
                 target='/app/%1/%2/%3.rb',
                 context='impl',
-              }, 
+              },
             },
           },
       },
@@ -88,6 +88,6 @@ return {
 	        minHeight = 2
       },
     }
-  end, 
+  end,
   cmd = {"Other", "OtherSplit","OtherVSplit", "OtherClear"}
 }
