@@ -4,6 +4,7 @@ return {
     "nvim-telescope/telescope-media-files.nvim",
     "tom-anders/telescope-vim-bookmarks.nvim",
     "MattesGroeger/vim-bookmarks",
+    "nvim-telescope/telescope-file-browser.nvim",
   },
   -- the first parameter is the plugin specification
   -- the second is the table of options as set up in Lazy with the `opts` key
@@ -15,5 +16,6 @@ return {
     local telescope = require "telescope"
     telescope.load_extension "media_files"
     telescope.load_extension "vim_bookmarks"
+    telescope.load_extension "file_browser"
   end,
 }
