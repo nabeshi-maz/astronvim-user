@@ -1,0 +1,9 @@
+{
+  "setup": {
+    "prefix": ["setup", "template"],
+    "body": [
+      "ayaaaaaaa"
+    ],
+    "description": "My standard setup Vue3 + TS"
+  }
+}
