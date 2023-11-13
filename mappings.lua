@@ -4,6 +4,11 @@ local directions = require('hop.hint').HintDirection
 return {
   -- first key is the mode
   n = {
+    -- move
+    ["<C-d>"] = {"<C-d>zz"},
+    ["<C-u>"] = {"<C-u>zz"},
+    ["n"] = {"nzzzv"},
+    ["N"] = {"Nzzzv"},
     ["<leader>a"] = { "ggVG", desc = "Select All" },
     -- quick save
     ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
@@ -35,6 +40,7 @@ return {
     ["<leader>sc"]={ "<cmd>Lspsaga show_cursor_diagnostics<CR>", desc ='lspsaga show cursor diagnostics'},
     ["[e"]={ "<cmd>Lspsaga diagnostic_jump_prev<CR>", desc ='lspsaga diagnostic_jump_prev'},
     ["]e"]={ "<cmd>Lspsaga diagnostic_jump_prev<CR>", desc ='lspsaga diagnostic_jump_prev'},
+    -- ["cp"]={"<cmd>let @+ = expand(\"%:p\")<CR>", desc="Copy File Path"},
   },
   t = {
     -- setting a mapping to false will disable it

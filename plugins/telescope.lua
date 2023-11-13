@@ -6,6 +6,7 @@ return {
     "MattesGroeger/vim-bookmarks",
     "nvim-telescope/telescope-file-browser.nvim",
     "nvim-telescope/telescope-live-grep-args.nvim",
+    "dawsers/telescope-file-history.nvim",
   },
   opts = function(_, opts)
     local lga_actions = require("telescope-live-grep-args.actions")
@@ -45,5 +46,6 @@ return {
     telescope.load_extension "vim_bookmarks"
     telescope.load_extension "file_browser"
     telescope.load_extension "live_grep_args"
+    telescope.load_extension "file_history"
   end,
 }

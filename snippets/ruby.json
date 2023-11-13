@@ -1,0 +1,7 @@
+{
+  "setup": {
+    "prefix": ["bin"],
+    "body": ["binding.pry"],
+    "description": "ruby"
+  }
+}

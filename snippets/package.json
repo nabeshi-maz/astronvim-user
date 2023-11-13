@@ -12,8 +12,11 @@
       {
         "language": ["typescript","ts"],
         "path": "./typescript.json"
+      },
+      {
+        "language": "ruby",
+        "path": "./ruby.json"
       }
-
     ]
   }
 }
