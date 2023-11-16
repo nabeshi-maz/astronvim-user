@@ -31,6 +31,20 @@ return {
               },
             },
           },
+        -- controller(not rest) 
+          {
+            pattern = '/app/controllers/(.*)_controller.rb',
+            target={
+              {
+                target='/spec/requests/%1/*.rb',
+                context='controller spec',
+              },
+              {
+                target='/app/views/%1/*.json.jbuilder',
+                context='controller spec',
+              },
+            },
+          },
         -- controller(rest) 
           {
             pattern = '/app/controllers/rest/(.*)_controller.rb',

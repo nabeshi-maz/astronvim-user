@@ -40,7 +40,8 @@ return {
     ["<leader>sc"]={ "<cmd>Lspsaga show_cursor_diagnostics<CR>", desc ='lspsaga show cursor diagnostics'},
     ["[e"]={ "<cmd>Lspsaga diagnostic_jump_prev<CR>", desc ='lspsaga diagnostic_jump_prev'},
     ["]e"]={ "<cmd>Lspsaga diagnostic_jump_prev<CR>", desc ='lspsaga diagnostic_jump_prev'},
-    -- ["cp"]={"<cmd>let @+ = expand(\"%:p\")<CR>", desc="Copy File Path"},
+    ["<leader>Z"]={"<cmd>let @+ = expand(\"%:p\")<CR>", desc="Copy Absolute File Path"},
+    ["<leader>z"]={"<cmd>let @+ = expand(\"%\")<CR>", desc="Copy relative File Path"},
   },
   t = {
     -- setting a mapping to false will disable it
